@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<table class="table">
+    @foreach (var item in (IEnumerable<SpotifyAppDemo.Playlists.Item>)ViewBag.Playlists)
+    {
+        <tr class="shadowed-danger">
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+        </tr>
+    }
+</table>

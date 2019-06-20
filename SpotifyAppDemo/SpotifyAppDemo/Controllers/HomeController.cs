@@ -1,15 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
+using static SpotifyAppDemo.Playlists;
 
 namespace SpotifyAppDemo.Controllers
 {
@@ -108,15 +108,19 @@ namespace SpotifyAppDemo.Controllers
         }
 
         public ActionResult Index()
-        {
-            string response = GetTrackInfo("https://api.spotify.com/v1/users/manaco1990/playlists");
-
+        {            
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Playlists()
         {
-            ViewBag.Message = "Your application description page.";
+            string response = GetTrackInfo("https://api.spotify.com/v1/users/manaco1990/playlists");
+            RootObject playlists = JsonConvert.DeserializeObject<RootObject>(response);
+            IEnumerable<Item> items = playlists.items;
+
+            // http://json2csharp.com/
+
+            ViewBag.Playlists = items;
 
             return View();
         }
