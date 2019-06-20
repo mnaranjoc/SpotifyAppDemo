@@ -1,0 +1,5 @@
+﻿// Client ID
+b49eac7e20ae4dac90a11f528089c830
+
+// Secret
+a0449ecc93524cc5a9028d4fe036ac18
