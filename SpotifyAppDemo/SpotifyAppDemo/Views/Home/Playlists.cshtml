@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Playlists";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
@@ -10,7 +10,7 @@
     {
         <tr class="shadowed-danger">
             <td>
-                @Html.DisplayFor(modelItem => item.name)
+                @Html.ActionLink(item.name, "Playlist", "HomeController", new { id = item.id })
             </td>
         </tr>
     }

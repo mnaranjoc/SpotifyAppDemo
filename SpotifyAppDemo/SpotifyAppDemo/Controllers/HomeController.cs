@@ -125,6 +125,17 @@ namespace SpotifyAppDemo.Controllers
             return View();
         }
 
+        public ActionResult Playlist(string id)
+        {
+            string response = GetTrackInfo("https://api.spotify.com/v1/playlists/" + id);
+            /*RootObject playlists = JsonConvert.DeserializeObject<RootObject>(response);
+            IEnumerable<Item> items = playlists.items;
+
+            ViewBag.Playlists = items;*/
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
